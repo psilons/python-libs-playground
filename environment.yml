@@ -1,0 +1,17 @@
+name: python_libs_playground
+
+channels:
+    - defaults
+    - conda-forge
+
+dependencies:
+    - python>=3.10  # The first line should always be python version
+    - pip
+    - pillow
+    - pip:
+          - pipdeptree # or conda install -c conda-forge pipdeptree
+          - wordcloud # extra libs
+          - pypdf2 # extra libs
+          - jieba # extra libs, Chinese
+          - paddlepaddle  # OCR Chinese
+          - paddleocr
