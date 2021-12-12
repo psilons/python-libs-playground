@@ -7,7 +7,7 @@ with open('beijing-2021.txt', 'r') as f:
 
 minl = numpy.array(lines, dtype=float)
 minlv = min(minl)
-minl = minl - minlv
+minl = minl - minlv  # meaning we lean the pole to an angle?
 midx = numpy.argmax(minl)
 nidx = numpy.argmin(minl)
 maxlv = max(minl)
