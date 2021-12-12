@@ -1,4 +1,3 @@
-import os
 import numpy
 import matplotlib.pyplot as plt
 
@@ -44,4 +43,3 @@ plt.polar(3*numpy.pi/2, minlv, marker='o', color='black')
 
 fig.savefig('yingyang.png')
 plt.show()
-
