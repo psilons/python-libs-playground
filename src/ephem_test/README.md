@@ -14,3 +14,4 @@ To verify the data:
 References:
 - https://medium.com/sentinel-hub/the-shadow-of-a-celestial-dance-90968f1f42fb
 - https://books.google.com/books?id=f2Xjzu0qR7IC&pg=PA8&lpg=PA8&dq=sun+daily+max+shadow+length&source=bl&ots=eeSH7DqpPj&sig=ACfU3U3dKU-2qDw_OS6yjUypY3BKyJHK3g&hl=en&sa=X&ved=2ahUKEwjUwpOApcD0AhVapnIEHSUpDv0Q6AF6BAgiEAM#v=onepage&q=sun%20daily%20max%20shadow%20length&f=false
+- https://www.pythonpool.com/matplotlib-polar-plot/
