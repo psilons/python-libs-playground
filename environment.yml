@@ -8,10 +8,11 @@ dependencies:
     - python>=3.10  # The first line should always be python version
     - pip
     - pillow
+    - ephem # high-precision astronomy computations
+    - pytz
     - pip:
-          - pipdeptree # or conda install -c conda-forge pipdeptree
-          - wordcloud # extra libs
-          - pypdf2 # extra libs
-          - jieba # extra libs, Chinese
-          - paddlepaddle  # OCR Chinese
-          - paddleocr
+          - wordcloud
+          - pypdf2 # wordcloud dependency
+          - jieba # wordcloud dependency
+          - tzwhere # latitude, longitude to timezone
+
