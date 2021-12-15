@@ -23,7 +23,7 @@ These 2 charts are from: https://www.chinesefortunecalendar.com/YinYang.htm
 
 ![4 seasons](yingyang-4_seasons.png)
 
-
+日晷 https://www.amazon.com/s?k=pocket+sundial&ref=nb_sb_noss_1
 
 References:
 - https://medium.com/sentinel-hub/the-shadow-of-a-celestial-dance-90968f1f42fb

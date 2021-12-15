@@ -5,7 +5,7 @@ channels:
     - conda-forge
 
 dependencies:
-    - python>=3.10  # The first line should always be python version
+    - python>=3.9  # The first line should always be python version
     - pip
     - pillow
     - ephem # high-precision astronomy computations
@@ -15,4 +15,6 @@ dependencies:
           - pypdf2 # wordcloud dependency
           - jieba # wordcloud dependency
           - tzwhere # latitude, longitude to timezone
+          - paddlepaddle  # check which python version it uses
+          - paddleocr # install after paddlepaddle
 
