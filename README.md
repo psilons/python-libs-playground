@@ -24,6 +24,8 @@ via pip on the command line.
 - paddlepaddle
 - paddleocr 
 
+`conda install -c conda-forge opencv` due to incompatible Python version.
+
 To activate the environment: `conda activate python_libs_playground`
 
 
@@ -32,6 +34,7 @@ To activate the environment: `conda activate python_libs_playground`
 ### Utilities
 - Console color print: https://github.com/willmcgugan/rich
 - Progress bars: https://github.com/rsalmei/alive-progress
+- https://blog.csdn.net/weixin_42686892/article/details/121958157
 - https://github.com/tqdm/tqdm from https://blog.csdn.net/qq_36807888/article/details/121902791
 - cloud client: https://pypi.org/project/free-storage/
 
@@ -61,10 +64,11 @@ To activate the environment: `conda activate python_libs_playground`
 
 ### Others
 - https://github.com/vinta/awesome-python
+- https://github.com/521xueweihan/HelloGitHub
 - https://github.com/ml-tooling/best-of-python-dev
 - https://tryolabs.com/blog/2020/12/21/top-10-python-libraries-of-2020
 - https://www.infoworld.com/article/3008915/24-python-libraries-for-every-python-developer.html
-- 
+- A general UI toolkit: https://github.com/gradio-app/gradio
 - Design Patterns: https://github.com/tylerlaberge/PyPattyrn
 - https://stackabuse.com/creational-design-patterns-in-python/
 - text to audio: https://github.com/formazione/pytextaudio
