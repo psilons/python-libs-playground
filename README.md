@@ -31,6 +31,9 @@ To activate the environment: `conda activate python_libs_playground`
 
 ## Python Libraries
 
+Linear programming:
+https://blog.csdn.net/devcloud/article/details/121990568
+
 ### Utilities
 - Console color print: https://github.com/willmcgugan/rich
 - Progress bars: https://github.com/rsalmei/alive-progress
@@ -74,3 +77,4 @@ To activate the environment: `conda activate python_libs_playground`
 - text to audio: https://github.com/formazione/pytextaudio
 - 
 - https://pypi.org/project/kelly-criterion/
+

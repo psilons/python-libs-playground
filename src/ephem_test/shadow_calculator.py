@@ -4,11 +4,12 @@ import datetime
 import pytz
 from tzwhere import tzwhere
 import numpy as np
+import math
 
 
 def time_zone(latitude, longitude):
-    tz_where = tzwhere.tzwhere()
-    timezone_str = tz_where.tzNameAt(latitude, longitude)
+    tz_where = tzwhere.tzwhere(forceTZ=True)
+    timezone_str = tz_where.tzNameAt(latitude, longitude, forceTZ=True)
     return pytz.timezone(timezone_str)
 
 
@@ -58,7 +59,7 @@ def daily_min_shadow(obs_tz, obs, dt, height=1):
     time = utc_begin
     obs.date = ephem.Date(time)
 
-    intv = datetime.timedelta(minutes=5)
+    intv = datetime.timedelta(minutes=1)
     sun = ephem.Sun(obs)
     shadow = 1000
     while time < utc_end:
@@ -67,7 +68,12 @@ def daily_min_shadow(obs_tz, obs, dt, height=1):
         # print(f'Sun altitude: {sun.alt}')
         cs = height / np.tan(sun.alt)
         if cs > 0:
-            shadow = min(shadow, height / np.tan(sun.alt))
+            # cs1 = height / np.tan(sun.alt)
+            # cs2 = height / np.tan(0.40905211865821023)
+            # cs3 = cs1 + cs2
+            # cs = cs3 * math.cos(0.40905211865821023)
+            # cs = height / np.tan(sun.alt + math.radians(obs.lat) - math.pi / 2) # The shape is right, but ...
+            shadow = min(shadow, cs)
 
         time += intv
         obs.date = ephem.Date(time)
@@ -105,9 +111,45 @@ def yearly_mins(latitude, longitude, year):
     res = []
     for i in range(days):
         dt = year_begin + datetime.timedelta(i)
-        res.append(daily_min_shadow(obs_tz, observer, dt))
+        dm = daily_min_shadow(obs_tz, observer, dt)
+        # dm = dm * math.cos(math.radians(23.43696))  # 0.40905211865821023
+        res.append(dm)
 
     return res
 
 
-print(yearly_mins(39.91369, 116.38824, 2021))
+def daily_daylight_length(obs_tz, obs, dt):
+    dt_begin = datetime.datetime(dt.year, dt.month, dt.day, 12, 0, 0)
+    utc_begin = obs_tz.localize(dt_begin).astimezone(pytz.utc)
+
+    obs.date = ephem.Date(utc_begin)
+    sun = ephem.Sun(obs)
+    return (obs.next_setting(sun, utc_begin) - obs.previous_rising(sun, utc_begin)) * 24
+
+
+def yearly_daylight_length(latitude, longitude, year):
+    obs_tz = time_zone(latitude, longitude)
+    print(f'observer timezone: {obs_tz}')
+
+    observer = ephem.Observer()
+    observer.lat, observer.long = str(latitude), str(longitude)
+
+    year_begin = datetime.datetime(year, 1, 1)
+    year_end = datetime.datetime(year, 12, 31)
+    days = (year_end - year_begin).days + 1
+    res = []
+    for i in range(days):
+        dt = year_begin + datetime.timedelta(i)
+        dm = daily_daylight_length(obs_tz, observer, dt)
+        res.append(dm)
+
+    return res
+
+# above 23, it's yingyang; below 23, it's strange.
+# below 66, it's yingyang; above 66, it's almost flat
+# for x in yearly_mins(40, 100, 2021):  # beijing 39.91369, 116.38824
+#     print(x)
+
+
+for x in yearly_daylight_length(40, 100, 2021):  # beijing 39.91369, 116.38824
+    print(x)
