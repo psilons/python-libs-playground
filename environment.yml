@@ -11,10 +11,15 @@ dependencies:
     - ephem # high-precision astronomy computations
     - pytz
     - pip:
-          - wordcloud
+          - wordcloud # another: https://github.com/minimaxir/stylecloud
           - pypdf2 # wordcloud dependency
           - jieba # wordcloud dependency
           - tzwhere # latitude, longitude to timezone
           - paddlepaddle  # check which python version it uses
           - paddleocr # install after paddlepaddle
+          - rembg
+
+# text to speech: pyttsx3, speed test: speedtest
+# https://blog.csdn.net/VincentLee7/article/details/126984383
+
 
