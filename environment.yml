@@ -10,6 +10,7 @@ dependencies:
     - pillow
     - ephem # high-precision astronomy computations
     - pytz
+    - psutil
     - pip:
           - wordcloud # another: https://github.com/minimaxir/stylecloud
           - pypdf2 # wordcloud dependency
