@@ -34,5 +34,29 @@ pid = os.getpid()
 pp = psutil.Process(pid)
 print(pp.cpu_percent(interval=2))
 print(pp.memory_info())
-# https://stackoverflow.com/questions/49357887/how-to-get-current-disk-io-and-network-io-into-percentage-using-python
+cpu = psutil.cpu_times_percent(interval=0.4, percpu=False)
+print(cpu)
 
+pcpu = pp.cpu_times()
+print(pcpu)
+print(pcpu[0] + pcpu[1])
+
+pmem = pp.memory_full_info()
+print(pmem)
+print(pmem.uss)
+
+# https://dzone.com/articles/using-the-psutil-module-for-system-monitoring-bonu
+# http://www.pointborn.com/article/2019/1/17/379.html
+# https://stackoverflow.com/questions/49357887/how-to-get-current-disk-io-and-network-io-into-percentage-using-python
+# https://github.com/jeetsukumaran/Syrupy
+# https://learnk8s.io/setting-cpu-memory-limits-requests
+# https://www.baeldung.com/linux/process-periodic-cpu-usage
+# https://github.com/zhuyifei1999/guppy3
+# https://pypi.org/project/memory-profiler/
+# https://unix.stackexchange.com/questions/554/how-to-monitor-cpu-memory-usage-of-a-single-process
+# https://opensource.com/article/18/7/fun-perf-and-python
+# https://devpress.csdn.net/python/62f4dc607e6682346618902c.html
+# https://geekflare.com/process-cpu-memory-monitoring/
+# https://blog.px.dev/cpu-profiling-2/
+# https://github.com/nylas/nylas-perftools
+# https://www.nylas.com/blog/performance/
